@@ -1,26 +1,24 @@
 {
-  "name": "billetera-virtual",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node ./src/main.js",
-
-     "test": "mocha --recursive --timeout 50000",
-
-     "tdd": "nodemon --exec mocha --recursive --reporter min",
-
-     "tdd-cov": "nodemon --exec nyc mocha --recursive",
-
-     "coverage": " nyc mocha --recursive && nyc report --reporter=lcov"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mocca": "^1.0.3",
-    "nodemon": "^2.0.5",
-    "nyc": "^15.1.0"
-  }
+     "name": "billetera-virtual",
+     "version": "1.0.0",
+     "description": "",
+     "main": "index.js",
+     "scripts": {
+          "start": "node ./src/main.js",
+          "test": "mocha --recursive --timeout 50000",
+          "tdd": "nodemon --exec mocha --recursive --reporter min",
+          "tdd-cov": "nodemon --exec nyc mocha --recursive",
+          "coverage": " nyc mocha --recursive && nyc report --reporter=lcov"
+     },
+     "author": "",
+     "license": "ISC",
+     "dependencies": {
+          "assert": "^2.0.0",
+          "axios": "^0.20.0",
+          "dotenv": "^8.2.0",
+          "express": "^4.17.1",
+          "mocca": "^1.0.3",
+          "nodemailer": "^6.4.14",
+          "nyc": "^15.1.0"
+     }
 }
