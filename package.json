@@ -4,15 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/main.js",
-
-     "test": "mocha --recursive --timeout 50000",
-
-     "tdd": "nodemon --exec mocha --recursive --reporter min",
-
-     "tdd-cov": "nodemon --exec nyc mocha --recursive",
-
-     "coverage": " nyc mocha --recursive && nyc report --reporter=lcov"
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "test": "mocha --recursive --timeout 50000",
+    "tdd": "nodemon --exec mocha --recursive --reporter min",
+    "tdd-cov": "nodemon --exec nyc mocha --recursive",
+    "coverage": " nyc mocha --recursive && nyc report --reporter=lcov"
   },
   "author": "",
   "license": "ISC",
