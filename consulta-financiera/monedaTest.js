@@ -10,35 +10,35 @@ async function cotizacionDolarLiquiTest() {
     console.log (valores)
 }
 
-async function cotizacionDolarBolsa() {
+async function cotizacionDolarBolsaTest() {
     const valores = await moneda.cotizacionDolarBolsa() 
     console.log (valores)
 }
 
-async function cotizacionDolarSoja() {
+async function cotizacionDolarSojaTest() {
     const valores = await moneda.cotizacionDolarSoja() 
     console.log (valores)
 }
 
-async function cotizacionDolarTurista() {
+async function cotizacionDolarTuristaTest() {
     const valores = await moneda.cotizacionDolarTurista() 
     console.log (valores)
 }
 
-async function cotizacionDolarBlue() {
+async function cotizacionDolarBlueTest() {
     const valores = await moneda.cotizacionDolarBlue() 
     console.log (valores)
 }
 
-async function cotizacionBitcoin() {
+async function cotizacionBitcoinTest() {
     const valores = await moneda.cotizacionBitcoin() 
     console.log (valores)
 }
 
 cotizacionDolarOficialTest()
 cotizacionDolarLiquiTest()
-cotizacionDolarBolsa()
-cotizacionDolarSoja()
-cotizacionDolarTurista()
-cotizacionDolarBlue()
-cotizacionBitcoin()
+cotizacionDolarBolsaTest()
+cotizacionDolarSojaTest()
+cotizacionDolarTuristaTest()
+cotizacionDolarBlueTest()
+cotizacionBitcoinTest()
