@@ -7,8 +7,7 @@ let mulerConfig = multer.diskStorage({
     destination: storage.upload.path,
 
     filename: (req, file, cb) => {
-      console.log(file.originalname);
-      cb(null, file.originalname);
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     },
   });
   
@@ -19,3 +18,4 @@ let mulerConfig = multer.diskStorage({
 
 let uploadFileMiddleware = util.promisify(uploadFile);
 module.exports = uploadFileMiddleware;
+
