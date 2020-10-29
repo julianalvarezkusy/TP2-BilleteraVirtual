@@ -1,37 +1,38 @@
 const moneda = require('./moneda')
+const cotizar = moneda.cotizar()
 
 async function cotizacionDolarOficialTest() {
-    const valores = await moneda.cotizacionDolarOficial()
+    const valores = await cotizar.dolarOficial()
     console.log (valores)
 }
 
 async function cotizacionDolarLiquiTest() {
-    const valores = await moneda.cotizacionDolarLiqui() 
+    const valores = await cotizar.dolarLiqui() 
     console.log (valores)
 }
 
 async function cotizacionDolarBolsaTest() {
-    const valores = await moneda.cotizacionDolarBolsa() 
+    const valores = await cotizar.dolarBolsa() 
     console.log (valores)
 }
 
 async function cotizacionDolarSojaTest() {
-    const valores = await moneda.cotizacionDolarSoja() 
+    const valores = await cotizar.dolarSoja() 
     console.log (valores)
 }
 
 async function cotizacionDolarTuristaTest() {
-    const valores = await moneda.cotizacionDolarTurista() 
+    const valores = await cotizar.dolarTurista() 
     console.log (valores)
 }
 
 async function cotizacionDolarBlueTest() {
-    const valores = await moneda.cotizacionDolarBlue() 
+    const valores = await cotizar.dolarBlue() 
     console.log (valores)
 }
 
 async function cotizacionBitcoinTest() {
-    const valores = await moneda.cotizacionBitcoin() 
+    const valores = await cotizar.bitcoin() 
     console.log (valores)
 }
 
