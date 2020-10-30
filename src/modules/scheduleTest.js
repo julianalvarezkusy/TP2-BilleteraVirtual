@@ -20,6 +20,10 @@ function programarRecurrenteSegundoTest(evento) {
     schedule.eventoRecurrenteSegundo(evento);
 }
 
+function eventoRecurrenteSegundos(evento, segundos) {
+    schedule.programarRecurrenteSeg(evento, segundos);
+}
+
 // function programarEventoDiaTest(evento) {
 //     schedule.temporizarEventoDia(evento, 1);
 // }
@@ -29,4 +33,4 @@ function programarRecurrenteSegundoTest(evento) {
 //}
 
 
-module.exports = { programarRecurrenteSegundoTest } 
+module.exports = { programarRecurrenteSegundoTest, eventoRecurrenteSegundos } 

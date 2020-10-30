@@ -55,10 +55,15 @@ Cron-Format para el scheduleJob
 //     });
 // }
 
-function eventoRecurrenteSegundo(evento) {
-    console.log('Se registro el evento como recurrente para cada segundo')
-    console.log(evento)
-    interfazSchedule.scheduleJob('* * * * * *', () => { evento() });
+// function eventoRecurrenteSegundo(evento) {
+//     console.log('Se registro el evento como recurrente para cada segundo')
+//     interfazSchedule.scheduleJob('* * * * * *', () => { evento() });
+// }
+
+function programarRecurrenteSeg(evento, segundos = 1) { 
+    console.log('Se registró el evento como recurrente cada ' + segundos + 'segundos.')
+    var textoCron = "*/" + segundos + " * * * * *"
+    interfazSchedule.scheduleJob(textoCron, () => { evento() }); // Ver la cancelación
 }
 
 module.exports = { 
@@ -67,5 +72,5 @@ module.exports = {
     // eventoRecurrenteDia,
     // eventoRecurrenteMes,
     // eventoRecurrenteMinuto,
-    eventoRecurrenteSegundo
+    programarRecurrenteSeg
 }
