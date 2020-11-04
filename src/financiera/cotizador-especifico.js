@@ -1,7 +1,7 @@
 const moneda = require('./cotizador-dolarsi')
 const cotizacion = moneda.cotizar()
 
-function cotizar() {
+function cotizador() {
 
     return {
         dolarOficial: async () => {
@@ -70,5 +70,5 @@ function cotizar() {
 }
 
 module.exports = {
-    cotizar
+    cotizador
 }

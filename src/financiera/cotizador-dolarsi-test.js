@@ -1,9 +1,9 @@
 const moneda = require('./cotizador-dolarsi')
-const cotizar = moneda.cotizar()
+const cotizador = moneda.cotizador()
 
 async function cotizacionDolarOficialTest() {
     try {
-        const valores = await cotizar.obtener(cotizar.DOLAR_OFICIAL) 
+        const valores = await cotizador.cotizar(cotizador.DOLAR_OFICIAL) 
         console.log (valores)
     } catch (error) {
         console.log(error)
@@ -12,7 +12,7 @@ async function cotizacionDolarOficialTest() {
 
 async function cotizacionDolarLiquiTest() {
     try {
-        const valores = await cotizar.obtener(cotizar.DOLAR_LIQUI) 
+        const valores = await cotizador.cotizar(cotizador.DOLAR_LIQUI) 
         console.log (valores)
     } catch (error) {
         console.log(error)
@@ -21,7 +21,7 @@ async function cotizacionDolarLiquiTest() {
 
 async function cotizacionDolarBolsaTest() {
     try {
-        const valores = await cotizar.obtener(cotizar.DOLAR_BOLSA) 
+        const valores = await cotizador.cotizar(cotizador.DOLAR_BOLSA) 
         console.log (valores)
     } catch (error) {
         console.log(error)
@@ -30,7 +30,7 @@ async function cotizacionDolarBolsaTest() {
 
 async function cotizacionDolarSojaTest() {
     try {
-        const valores = await cotizar.obtener(cotizar.DOLAR_SOJA) 
+        const valores = await cotizador.cotizar(cotizador.DOLAR_SOJA) 
         console.log (valores)
     } catch (error) {
         console.log(error)
@@ -39,7 +39,7 @@ async function cotizacionDolarSojaTest() {
 
 async function cotizacionDolarTuristaTest() {
     try {
-        const valores = await cotizar.obtener(cotizar.DOLAR_TURISTA) 
+        const valores = await cotizador.cotizar(cotizador.DOLAR_TURISTA) 
         console.log (valores)
     } catch (error) {
         console.log(error)
@@ -48,7 +48,7 @@ async function cotizacionDolarTuristaTest() {
 
 async function cotizacionDolarBlueTest() {
     try {
-        const valores = await cotizar.obtener(cotizar.DOLAR_BLUE) 
+        const valores = await cotizador.cotizar(cotizador.DOLAR_BLUE) 
         console.log (valores)
     } catch (error) {
         console.log(error)
@@ -57,7 +57,7 @@ async function cotizacionDolarBlueTest() {
 
 async function cotizacionBitcoinTest() {
     try {
-        const valores = await cotizar.obtener(cotizar.BITCOIN) 
+        const valores = await cotizador.cotizar(cotizador.BITCOIN) 
         console.log (valores)
     } catch (error) {
         console.log(error)
@@ -66,7 +66,7 @@ async function cotizacionBitcoinTest() {
 
 async function cotizacionErrorTest() {
     try {
-        const valores = await cotizar.obtener('error') 
+        const valores = await cotizador.cotizar('error') 
         console.log (valores)
     } catch (error) {
         console.log(error)

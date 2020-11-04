@@ -1,6 +1,6 @@
 const axios = require('axios')
     
-function cotizar() {
+function cotizador() {
 
     const DOLAR_OFICIAL = 'dolar-oficial'
     const DOLAR_LIQUI = 'dolar-liqui'
@@ -59,13 +59,15 @@ function cotizar() {
         DOLAR_BLUE,
         BITCOIN,
 
-        obtener: async (nombre) => {
+        cotizar: async (nombre) => {
             const resultado = await obtenerCotizaciones()
             const nombreReal = validarSolicitud(nombre)
             const cotizaciones = resultado.data
             for (let c of cotizaciones) {
                 if (c.casa.nombre == nombreReal) {
-                    return {venta: c.casa.venta, compra: c.casa.compra}
+                    const valorVenta = (c.casa.venta).replace(',', '.')
+                    const valorCompra = (c.casa.compra).replace(',', '.')
+                    return {venta: parseFloat(valorVenta), compra: parseFloat(valorCompra)}
                 }
             }
         }
@@ -73,5 +75,5 @@ function cotizar() {
 }
 
 module.exports = {
-    cotizar
+    cotizador
 }
