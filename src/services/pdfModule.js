@@ -3,9 +3,13 @@ const fs = require("fs");
 
 function pdfModule() {
   return {
-    crearDoc: (title, text, route) => {
+    crearDoc: (title, content, route) => {
       //instancio el objeto Documento PDF
       let doc = new PDFDocument();
+
+      if (!Array.isArray(content)) {
+        throw new Error("Error: Debe recibir un array");
+      }
 
       //Seteo el pipe adónde lo va a dejar
       const writeStream = fs.createWriteStream(
@@ -20,7 +24,9 @@ function pdfModule() {
 
       doc.moveDown();
 
-      doc.text(text);
+      content.forEach((line) => {
+        doc.text(line);
+      });
 
       doc.end();
     },
