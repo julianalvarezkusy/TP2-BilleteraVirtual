@@ -1,6 +1,6 @@
-import {crearMiMailer} from "mailer.js"
+import {crearMiMailer} from ("mailer.js")
 
-function mainMailer (){
+function testMailer (){
     const user = "joshuah5@ethereal.email"
     const pass = "e8RQSDdrWYbJeaTSwE"
    
@@ -9,5 +9,5 @@ function mainMailer (){
     return envio
 }
 module.exports = {
-    mainMailer
+    testMailer
 }

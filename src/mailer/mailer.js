@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer")
 
 
 function crearMiMailer(user,pass){
-//router.post("/send-email",async (req,res) => {
+
     
        var transporter = nodemailer.createTransport(user,pass)
        ({
@@ -29,4 +29,4 @@ function crearMiMailer(user,pass){
 
 
 
-module.exports = crearMiMailer
+module.exports = {crearMiMailer}

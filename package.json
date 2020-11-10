@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node main.js",
-    "dev": "nodemon main.js",
+    "dev": "nodemon src/main.js",
     "test": "mocha --recursive --timeout 50000",
     "tdd": "nodemon --exec mocha --recursive --reporter min",
     "tdd-cov": "nodemon --exec nyc mocha --recursive",
