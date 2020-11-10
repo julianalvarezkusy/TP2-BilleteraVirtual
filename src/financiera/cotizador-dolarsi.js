@@ -1,6 +1,6 @@
 const axios = require('axios')
     
-function cotizador() {
+function crearCotizador() {
 
     const DOLAR_OFICIAL = 'dolar-oficial'
     const DOLAR_LIQUI = 'dolar-liqui'
@@ -18,36 +18,36 @@ function cotizador() {
         }
     }
 
-    function validarSolicitud(nombre) {
-        let param
+    function validarSolicitud(tipoCotizacion) {
+        let solicitud
         
-        switch (nombre) {
+        switch (tipoCotizacion) {
             case DOLAR_OFICIAL:
-                param = 'Dolar Oficial'
+                solicitud = 'Dolar Oficial'
                 break
             case DOLAR_LIQUI:
-                param = 'Dolar Contado con Liqui'
+                solicitud = 'Dolar Contado con Liqui'
                 break
             case DOLAR_BOLSA:
-                param = 'Dolar Bolsa'
+                solicitud = 'Dolar Bolsa'
                 break
             case DOLAR_SOJA:
-                param = 'Dolar Soja'
+                solicitud = 'Dolar Soja'
                 break
             case DOLAR_TURISTA:
-                param = 'Dolar turista'
+                solicitud = 'Dolar turista'
                 break
             case DOLAR_BLUE:
-                param = 'Dolar Blue'
+                solicitud = 'Dolar Blue'
                 break
             case BITCOIN:
-                param = 'Bitcoin'
+                solicitud = 'Bitcoin'
                 break
             default:
-                throw 'La cotización "' + nombre + '" no se encuentra disponible.'
+                throw "La cotización '" + tipoCotizacion + "' no se encuentra disponible."
         }
 
-        return param
+        return solicitud
     }
 
     return {
@@ -59,15 +59,15 @@ function cotizador() {
         DOLAR_BLUE,
         BITCOIN,
 
-        cotizar: async (nombre) => {
+        cotizar: async (tipoCotizacion) => {
+            const solicitud = validarSolicitud(tipoCotizacion)
             const resultado = await obtenerCotizaciones()
-            const nombreReal = validarSolicitud(nombre)
             const cotizaciones = resultado.data
             for (let c of cotizaciones) {
-                if (c.casa.nombre == nombreReal) {
+                if (c.casa.nombre == solicitud) {
                     const valorVenta = (c.casa.venta).replace(',', '.')
                     const valorCompra = (c.casa.compra).replace(',', '.')
-                    return {venta: parseFloat(valorVenta), compra: parseFloat(valorCompra)}
+                    return { venta: parseFloat(valorVenta), compra: parseFloat(valorCompra) }
                 }
             }
         }
@@ -75,5 +75,5 @@ function cotizador() {
 }
 
 module.exports = {
-    cotizador
+    crearCotizador
 }
