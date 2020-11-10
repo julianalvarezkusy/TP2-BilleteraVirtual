@@ -1,6 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const { pdfCreator } = require("./src/services/pdfCreator");
+const {estrategia} = require('./src/services/estrategias/consolidadoGastosTemplate')
 
 function main() {
   const doc = pdfCreator();
@@ -14,11 +15,18 @@ function main() {
   };
 
   const ruta = "./src/services/out/";
-  try {
-    doc.crearDoc(text.title, text.content, ruta);
-  } catch (error) {
-    console.log(error.message);
-  }
+
+  const pdfConEstrategia = pdfCreator(estrategia)
+try {
+  pdfConEstrategia.crearDoc(text.content, ruta)
+  
+} catch (error) {
+  console.log(error)
+}
+
+
+
+
 }
 
 main();
