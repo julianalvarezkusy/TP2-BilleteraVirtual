@@ -1,5 +1,5 @@
-const {crearCUcontacto} = require ("crearCU.js")
-const mailerFactory = require("mailerFactory.js")
+const {crearCUcontacto} = require ("../casosDeUso/crearCU.js")
+const mailerFactory = require("./mailerFactory.js")
 
 const mailer = mailerFactory.getMailer()
 

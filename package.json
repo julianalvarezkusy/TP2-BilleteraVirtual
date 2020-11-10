@@ -2,14 +2,16 @@
   "name": "billetera-virtual",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "node main.js",
     "dev": "nodemon src/main.js",
     "test": "mocha --recursive --timeout 50000",
     "tdd": "nodemon --exec mocha --recursive --reporter min",
     "tdd-cov": "nodemon --exec nyc mocha --recursive",
-    "coverage": " nyc mocha --recursive && nyc report --reporter=lcov"
+    "coverage": " nyc mocha --recursive && nyc report --reporter=lcov",
+    "CU" : "node src/mailer/casosDeUso/crearCUTest.js"
+
   },
   "author": "",
   "license": "ISC",
