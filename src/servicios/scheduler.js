@@ -21,11 +21,17 @@ por parámetro y elaborando el string final.
 const scheduler = require('node-schedule')
 const cronBuilder = require('cron-builder')
 
-function programarTareaDia(dia, evento) {
-    const cb = new cronBuilder();
-    cb.addValue("minute", dia)
 
-    let job = scheduler.scheduleJob(cb.build(), evento);
+function crearMiScheduler() { 
+    return {
+        programarTareaDia: (dia, evento) => {
+            const cb = new cronBuilder();
+            cb.addValue("minute", dia) // Temporalmente puesto en "minute" a efectos de testeo.
+        
+            let job = scheduler.scheduleJob(cb.build(), evento);
+            return job;
+        }
+    }
 }
 
-module.exports = { programarTareaDia }
+module.exports = { crearMiScheduler }
