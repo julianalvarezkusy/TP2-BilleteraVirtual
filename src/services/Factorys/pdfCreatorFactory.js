@@ -4,11 +4,13 @@ const datos = require('../config')
 
 const miCreadorPdf = pdfCreator(estrategia)
 
-const InformeDeGastosFactory=(content, route)=>{
-           
-        return miCreadorPdf.crearDoc(content, route)
+const InformeDeGastosFactory={
+        getInformedeGastosFC: ()=>{
+
+            return miCreadorPdf
+        }
     
 }
 
 
-module.exports = {InformeDeGastosFactory}
+module.exports = InformeDeGastosFactory

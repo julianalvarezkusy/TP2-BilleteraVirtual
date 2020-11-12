@@ -1,7 +1,10 @@
-const CU = require('./src/services/CU/GenerarInformeDeGastos')
+const CU = require('./src/services/Factorys/pdfCreatorFactory')
+const datos = require('./src/services/config')
+
+const enviardorPDF = CU.getInformedeGastosFC()
 
 function main(){
-  CU.miCasodeUso()
+  enviardorPDF.crearDoc(datos.datos, datos.ruta)
 }
 
 main();
