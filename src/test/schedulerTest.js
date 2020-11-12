@@ -7,7 +7,7 @@ function evento () {
 }
 
 function pruebaScheduler () {
-    let jobAlmacenado = miScheduler.programarTareaDia("37", evento)
+    let jobAlmacenado = miScheduler.programarTareaDia("46", evento)
     console.log(jobAlmacenado)
 }
 

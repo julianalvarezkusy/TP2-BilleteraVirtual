@@ -1,14 +1,15 @@
 const { Router } = require ("express")
 const router = Router()
+const { crearCURecordatorioCotizacion } = require('../casosdeuso/recordatorioCotizacion.js')
+const { crearMiScheduler } = require('../servicios/scheduler.js');
 
-router.get("/",async (req,res) => {
-      console.log("Che, llegó un get.")
-      res.send("esto debería mandar como respuesta")
-})
+const miScheduler = crearMiScheduler();
+const miCU = crearCURecordatorioCotizacion(miScheduler)
 
-router.post("/",async (req,res) => {
-      console.log("Che, llegó un post.")
-      res.send('esto debería mandar como respuesta');
+router.post("/recordarcotizacion",async (req,res) => {
+      console.log(req.query.dia)
+      miCU.run(req.query.dia);
+      res.send('Se fijó el recordatorio de cotización para el día ' + req.query.dia);
 })
 
 module.exports = router;

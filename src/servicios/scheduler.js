@@ -28,8 +28,8 @@ function crearMiScheduler() {
             const cb = new cronBuilder();
             cb.addValue("minute", dia) // Temporalmente puesto en "minute" a efectos de testeo.
         
-            let job = scheduler.scheduleJob(cb.build(), evento);
-            return job;
+            const tarea = scheduler.scheduleJob(cb.build(), evento); // Método build hace un toString de los parámetros dados.
+            return tarea;
         }
     }
 }
