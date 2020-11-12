@@ -1,10 +1,8 @@
 const { Router } = require ("express")
 const router = Router()
-const { crearCURecordatorioCotizacion } = require('../casosdeuso/recordatorioCotizacion.js')
-const { crearMiScheduler } = require('../servicios/scheduler.js');
 
-const miScheduler = crearMiScheduler();
-const miCU = crearCURecordatorioCotizacion(miScheduler)
+const { recordatorioCUFactory } = require('../factories/recordatorioCUFactory')
+const miCU = recordatorioCUFactory.getCU()
 
 router.post("/recordarcotizacion",async (req,res) => {
       console.log(req.query.dia)
