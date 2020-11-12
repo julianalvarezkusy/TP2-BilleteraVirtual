@@ -1,6 +1,9 @@
 const express = require('express');
 const router = require('./src/ruteo/router.js')
+const schedulerTest = require('./src/test/schedulerTest')
 require('dotenv').config();
+
+schedulerTest.pruebaScheduler();
 
 const app = express();
 
