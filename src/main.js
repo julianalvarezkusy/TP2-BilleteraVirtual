@@ -1,5 +1,8 @@
 const express = require('express');
 
+const operacionMonetariaImport = require('./persistencia/dao-mongo')
+const operacionMonetariaDao = operacionMonetariaImport.crearDao(); 
+
 const importFinancieraFactory = require('./financiera-factory')
 const financieraFactory = importFinancieraFactory.crearFinancieraFactory();
 const financiera = financieraFactory.obtenerFinanciera()
@@ -8,11 +11,10 @@ const puerto = '8080'
 const app = express();
 app.use(express.json())
 
-// app.use( express.json() );
-
 const transaccionar = async (operation, amount) => {
     const resultado = await financiera.pesificar('dolar-oficial', operation, amount)
-    const respuesta = { operacion: operation, monto: amount, pesos: resultado, codigo: 200 }
+    const respuesta = { operacion: operation, monto: amount, pesos: resultado }
+    operacionMonetariaDao.crearOperacionMonetaria(respuesta)
     return respuesta
 }
 
@@ -47,3 +49,14 @@ app.get('/compra/:monto', async (req, res) => {
     }
     res.json(respuesta)
 })
+
+app.get('/operaciones', (req, res) => {
+    let respuesta;
+    try {
+        respuesta = operacionMonetariaDao.listarOperacionMonetaria()
+    } catch (error) {
+        respuesta = { codigo: 400, mensaje: error }
+    }
+    res.send(respuesta)
+})
+
