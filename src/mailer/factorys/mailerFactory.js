@@ -13,10 +13,13 @@ const account = {
 
 const mailer = mailerModulo.crearMiMailer(config, account)
 
-const mailerFactory = {
-    getMailer:() =>{
+function crearmailerFactory () {
+   return{
+       getMailer: () =>{
         return mailer
     }
+  }
 }
 
-module.exports = {mailerFactory}
+
+module.exports = {crearmailerFactory}

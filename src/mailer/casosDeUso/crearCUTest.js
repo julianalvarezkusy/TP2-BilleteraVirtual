@@ -5,11 +5,11 @@ const mailer = mailerFactory.getMailer()
 
 const mailOptions = {
     from: 'americo.roob42@ethereal.email', // sender address
-    to: 'macarenaocampomarti@gmail.com', // list of receivers
+    to: 'cliente@gmail.com', // list of receivers
     subject: 'Contacto ✔', // Subject line
-    text: 'te estamos contactando', // plaintext body
+    text: 'verifica tus datos', // plaintext body
     html: '<b>Hello world ?</b>' // html body
 }
 
 const CU = crearCUcontacto(mailer)
- CU.run(mailOptions)
+ CU.run(mailOptions) 

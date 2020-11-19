@@ -1,14 +1,18 @@
 const {crearCUcontacto} = require ("../casosDeUso/crearCU.js")
 const mailerFactory = require("./mailerFactory.js")
 
-const mailer = mailerFactory.getMailer()
 
-const CU = crearCUcontacto(mailer)
+const mailer = mailerFactory.crearmailerFactory()
 
-const CUfactory = {
-    getCUcontacto: () =>{
-        return CU
-    }
+
+function crearCUfactory() {
+    return{
+        getCUcontacto: (daoCLI) =>{
+            const CU = crearCUcontacto(mailer,daoCLI)
+            return CU
+        }
+    } 
 }
 
-module.exports = {CUfactory}
+module.exports = {crearCUfactory}
+

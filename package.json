@@ -4,14 +4,15 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "start": "node main.js",
+    "start": "node src/main.js",
     "dev": "nodemon src/main.js",
     "test": "mocha --recursive --timeout 50000",
     "tdd": "nodemon --exec mocha --recursive --reporter min",
     "tdd-cov": "nodemon --exec nyc mocha --recursive",
     "coverage": " nyc mocha --recursive && nyc report --reporter=lcov",
-    "CU" : "node src/mailer/casosDeUso/crearCUTest.js"
-
+    "CU": "node src/mailer/casosDeUso/crearCUTest.js",
+    "mailertest": "node src/mailer/servicio/mailertest.js",
+    "maintest":"node src/maintest.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mocca": "^1.0.3",
+    "mocha": "^8.2.1",
     "nodemailer": "^6.4.15",
     "nodemon": "^2.0.5",
     "nyc": "^15.1.0"

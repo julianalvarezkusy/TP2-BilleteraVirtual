@@ -24,7 +24,7 @@ function crearMiMailer(config, account){
     }
 
     return {
-       enviar: async () => {
+       enviar: async (mailOptions) => {
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
                    throw "No es posible enviar el correo electronico."
