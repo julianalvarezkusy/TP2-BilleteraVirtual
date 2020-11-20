@@ -2,15 +2,10 @@
   "name": "billetera-virtual",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
   "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
-=======
   "main": "main.js",
-  "scripts": {
-    "start": "node main.js",
->>>>>>> 4d6a46eea0d357b1e89088dfc469237c5011a22e
     "dev": "nodemon src/main.js",
     "test": "mocha --recursive --timeout 50000",
     "tdd": "nodemon --exec mocha --recursive --reporter min",
@@ -30,14 +25,11 @@
     "express": "^4.17.1",
     "fast-csv": "^4.3.5",
     "mocca": "^1.0.3",
-<<<<<<< HEAD
     "mocha": "^8.2.1",
     "nodemailer": "^6.4.15",
-=======
     "mongoose": "^5.10.14",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
->>>>>>> 4d6a46eea0d357b1e89088dfc469237c5011a22e
     "nodemon": "^2.0.5",
     "nyc": "^15.1.0",
     "path": "^0.12.7",
