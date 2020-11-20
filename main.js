@@ -1,12 +1,12 @@
-const express = require('express');
-require('dotenv').config();
+const {crearServidor} = require('./server')
+const {getDao} = require('./src/dao/daoClientesFactory')
 
-const app = express();
+let db = getDao()
 
-app.use( express.json() );
+miServer = crearServidor({puerto: 3000, db : db})
 
 
-app.listen( process.env.PORT, () => {
-    console.log(`Servidor corriendo en puerto ${ process.env.PORT }`);
-});
+
+
+
 
