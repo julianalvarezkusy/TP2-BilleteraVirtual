@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express = require('express');
 const { crearCliRouter } = require('./mailer/ruteo/router.js');
 require('dotenv').config();
@@ -27,8 +26,7 @@ app.listen( process.env.PORT, () => {
 
 
 module.exports = { crearServidor }
-=======
-const express = require("express");
+// const express = require("express");
 require("dotenv").config();
 
 const { handleFiles } = require("./handlers");
@@ -57,4 +55,3 @@ handleFiles(app);
 app.listen(process.env.PORT, () => {
   console.log(`Servidor corriendo en puerto ${process.env.PORT}`);
 });
->>>>>>> 4d6a46eea0d357b1e89088dfc469237c5011a22e
