@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://marianofidalgo:xw9ptxlvTE4LBemf@clusterprimario.iuegw.mongodb.net/billetera";
+const uri = "mongodb+srv://marianofidalgo:841991@cluster0.cgllf.mongodb.net/billetera";
 
 MongoClient.connect(uri, function(error, db) {
   if (error) throw error;
