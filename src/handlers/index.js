@@ -1,13 +1,18 @@
 const express = require("express");
 
-const { upload } = require("../handlers/uploadFile");
+const { create } = require("../handlers/create");
+const { upload } = require("../handlers/upload");
 const { read } = require("../handlers/readFiles");
 const { download } = require("../handlers/downloadFile");
+//const { readAndSaveCSV } = require("../services/CU/csv");
+
 
 const handlers = [
-    upload,
+  create,
      read,
-     download
+     download,
+     upload,
+    // readAndSaveCSV
     ];
 
 const handleFiles = (app) => {

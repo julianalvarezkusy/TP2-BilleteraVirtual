@@ -2,6 +2,10 @@ const express = require("express");
 require("dotenv").config();
 
 const { handleFiles } = require("./handlers");
+const { readAndSaveCSV } = require("./services/CU/csv");
+
+
+readAndSaveCSV("info.csv");
 
 
 // App config
@@ -13,8 +17,11 @@ app.use('/api/files', express.static('uploads'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+  
+
 // files
 handleFiles(app);
+
 
 
 app.listen(process.env.PORT, () => {

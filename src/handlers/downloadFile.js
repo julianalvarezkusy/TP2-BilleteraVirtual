@@ -2,6 +2,12 @@ const storage = require("../services/storage");
 
 
 
+const download = (router) => {
+  router.get("/files/:name", handle);
+};
+
+
+
 const handle = (req, res) => {
     const fileName = req.params.name;
     const directoryPath = storage.upload.path;
@@ -16,9 +22,6 @@ const handle = (req, res) => {
   };
 
 
-  const download = (router) => {
-    router.get("/files/:name", handle);
-  };
   
   module.exports = {
     download,

@@ -2,6 +2,13 @@ const storage = require("../services/storage");
 const fs = require("fs");
 const baseUrl = "http://localhost:4000/api/files/";
 
+
+
+const read = (router) => {
+  router.get("/files", handle);
+};
+
+
 const handle = (req, res) => {
   const directoryPath = storage.upload.path;
 
@@ -29,9 +36,6 @@ const handle = (req, res) => {
   });
 };
 
-const read = (router) => {
-  router.get("/files", handle);
-};
 
 module.exports = {
   read,
