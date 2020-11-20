@@ -1,19 +1,12 @@
-const { datos } = require('../config')
-const datosPrueba= require('../config')
-const {InformeDeGastosFactory} = require('../Factorys/pdfCreatorFactory')
 
 
-
-
-
-
-const miCasodeUso=()=>{
+const InformeGastos=(InformeDeGastosFactory)=>{
     return{
-        run: ()=>{
+        run: (data)=>{
             
-            InformeDeGastosFactory(datosPrueba.datos, datosPrueba.ruta)
+            InformeDeGastosFactory.crearDoc(data.datos, data.ruta)
         }
     }
 }
 
-module.exports= {miCasodeUso}
+module.exports= {InformeGastos}

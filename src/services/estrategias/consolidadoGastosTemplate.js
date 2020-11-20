@@ -5,10 +5,10 @@ const estrategia = function (template,content, route){
 
     const NOMBRE_REPORTE = 'Consolidado gastos'
 
-      console.log('Entro a la estrategia')
+      
       //Seteo el pipe adónde lo va a dejar
       const writeStream = fs.createWriteStream(
-        route + NOMBRE_REPORTE + '-' + Date.now() + ".pdf"
+        route + content.dni +".pdf"
       );
       template.pipe(writeStream);
 
@@ -21,22 +21,26 @@ const estrategia = function (template,content, route){
       template.text(NOMBRE_REPORTE, {
         align: "center",
       });
+      template.moveDown();
+
+      template.text('Cliente: ' + content.nombre)
 
       template.moveDown();
 
-      content.forEach((line) => {
+      content.gastos.forEach((line) => {
         var lineJson = JSON.parse(JSON.stringify(line));
 
         template.text(
           lineJson.fecha +
             "........" +
-            lineJson.gasto +
+            lineJson.descripcion +
             "......$" +
             lineJson.monto
         );
       });
 
       template.end();
+      return template
     }
 
 

@@ -1,0 +1,28 @@
+{
+  "type": "commonjs",
+  "name": "04-web-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "mocha --recursive",
+    "tdd": "nodemon --exec mocha --recursive",
+    "coverage": "nyc mocha --recursive",
+    "tdd-cov": "nodemon --exec npm run coverage && nyc report --reporter=lcov"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "nodemonConfig": {
+    "ignore": []
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2",
+    "nyc": "^15.1.0"
+  },
+  "devDependencies": {
+    "axios": "^0.20.0"
+  }
+}

@@ -6,8 +6,9 @@ const InformedeGastosFactory = require('../Factorys/pdfCreatorFactory')
 
 const miFactory = InformedeGastosFactory.getInformedeGastosFC()
 
-InformeGastos(InformedeGastosFactory).run(datosPrueba)
+// InformeGastos(InformedeGastosFactory).run(datosPrueba)
 
+miFactory.crearDoc(datosPrueba)
 
 
 

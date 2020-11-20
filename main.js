@@ -1,10 +1,12 @@
-const CU = require('./src/services/Factorys/pdfCreatorFactory')
-const datos = require('./src/services/config')
+const {crearServidor} = require('./server')
+const {getDao} = require('./src/dao/daoClientesFactory')
 
-const enviardorPDF = CU.getInformedeGastosFC()
+let db = getDao()
 
-function main(){
-  enviardorPDF.crearDoc(datos.datos, datos.ruta)
-}
+miServer = crearServidor({puerto: 3000, db : db})
 
-main();
+
+
+
+
+
