@@ -8,15 +8,15 @@ const { crearCLIApi } = require("../Aplicacion/CliApi")
 function crearCliRouter(daoCLI){
 
     const api = crearCLIApi(daoCLI)
-  //  const CUfactory = crearCUfactory()
+    const CUfactory = crearCUfactory()
 
         router.post('/api/contacto', async (req, res) => {
             
                 const {nombre,apellido,email,tel} = req.body
                 const cli = await api.agregarCli(nombre,apellido,email,tel) 
                 console.log(cli)
-               // const CUcontacto = CUfactory.getCUcontacto() 
-               // CUcontacto.run(cli.id)
+                const CUcontacto = CUfactory.getCUcontacto() 
+                CUcontacto.run(cli.id)
                 res.redirect("/success.html")
                 
             
