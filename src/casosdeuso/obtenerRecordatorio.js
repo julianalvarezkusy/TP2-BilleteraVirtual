@@ -4,7 +4,9 @@
 function crearCUObtenerRecordatorio(dao) {
     return {
         run: (userId) => {
-            return dao.getByUserId(userId)
+            const resultado = dao.getByUserId(userId)
+            console.log('El recordatorio programado para el usuario ' + userId + ' es: ' + resultado)
+            return resultado;
         }
     }
 }

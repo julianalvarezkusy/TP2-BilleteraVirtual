@@ -22,9 +22,9 @@ function crearCURecordatorioCotizacion(scheduler, dao) {
     return {
         run: (userId, dia) => {
             if (esDiaValido(dia)) {
-                const tarea = scheduler.programarTareaDia(dia, cotizacion); // Almaceno el job para implementar persistencia
-                dao.add(userId, tarea) // Persistencia
-                console.log(dao.getByUserId('prueba'))
+                const tarea = scheduler.programarTareaDia(dia, cotizacion);         // Almaceno el job para implementar persistencia
+                console.log('Se agregó un recordatorio cada ' + dia + ' días para el usuario: ' + userId)
+                dao.add(userId, tarea)                                              // Persistencia
                 return tarea;
             }
 
