@@ -2,20 +2,43 @@ const { Router } = require("express")
 const router = Router()
 
 const { recordatorioCUFactory } = require('../factories/recordatorioCUFactory')
-const miCU = recordatorioCUFactory.getCU()
+const recordatorioCU = recordatorioCUFactory.getCU()
 
-router.post("/recordarcotizacion", async (req, res) => {
-      console.log(req.query.dia)
+const { eliminarCUFactory } = require('../factories/eliminarCUFactory')
+const eliminarCU = eliminarCUFactory.getCU()
 
-      // hacer esto con try catch
+router.delete("/recordatorios", async (req, res) => {
 
-      if (miCU.run(req.query.dia) != undefined) {
-            res.send('Se fijó el recordatorio de cotización para el día ' + req.query.dia);
-      } else {
-            res.status(400)
-            res.send('Los parámetros ingresados son inválidos')
+      try {
+            let resultado = eliminarCU.run(req.query.userId)
+            res.json(resultado)
+      }
+      catch (error) {
+            manejarError(error, res)
       }
 
 })
+
+router.post("/recordatorios", async (req, res) => {
+      console.log(req.query.dia)
+
+      try {
+            let resultado = recordatorioCU.run(req.query.userId, req.query.dia)
+            res.json(resultado)
+      }
+      catch (error) {
+            manejarError(error, res)
+      }
+
+})
+
+function manejarError(error, response) {
+      if (error.type === 'USER_ERROR') {
+          response.status(400)
+      } else {
+          response.status(500)
+      }
+      response.json({ message: error.message })
+  }
 
 module.exports = router;

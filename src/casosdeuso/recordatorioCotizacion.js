@@ -18,11 +18,13 @@ function esDiaValido(dia) {
     return esValido;
 }
 
-function crearCURecordatorioCotizacion(scheduler) {
+function crearCURecordatorioCotizacion(scheduler, dao) {
     return {
-        run: (dia) => {
+        run: (userId, dia) => {
             if (esDiaValido(dia)) {
                 const tarea = scheduler.programarTareaDia(dia, cotizacion); // Almaceno el job para implementar persistencia
+                dao.add(userId, tarea) // Persistencia
+                console.log(dao.getByUserId('prueba'))
                 return tarea;
             }
 
