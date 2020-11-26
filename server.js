@@ -1,9 +1,14 @@
+const express = require('express')
 const {crearCliente} = require('./src/entidades/cliente')
 const {crearGasto} = require('./src/entidades/gasto')
-const express = require('express')
 const { crearErrorDeUsuario } = require('./src/error/errores')
-const InformeGastos = require('./src/services/CU/generarReportCliente')
-const fs = require('fs')
+const InformeGastos = require('./src/services/CU/factoryReporteDeGastos')
+
+
+
+// const miFactory = informeFactory.getInformedeGastosFC()
+
+
 
 
 
@@ -11,8 +16,7 @@ function crearServidor({puerto = 0, db}){
     return new Promise((resolve,reject)=>{
         const app = express()
         app.use(express.json())
-        // const router  = require('./src/router/exportPdf')
-        // app.use('/api', router)
+
 
         app.get('/api/clientes', async (req, res) =>{
             try {
@@ -40,7 +44,7 @@ function crearServidor({puerto = 0, db}){
                 //buscar un cliente por dni
                 const clientes = await db.getByDni(req.body.dni)
                 if(clientes.length === 0){
-                    throw new Error('Cliente no encontrado')
+                    throw crearErrorDeUsuario('Cliente no encontrado')
                 }
                 
                 //crea un Gasto
@@ -63,18 +67,14 @@ function crearServidor({puerto = 0, db}){
 
             try {               
                 
-                let data = await InformeGastos.run(req.params.dni, db)
+                let data = await InformeGastos.ejecutar(req.params.dni, db)
 
                 setTimeout(()=>{
                     res.sendFile(data)}, 1000)
 
-        
-
-                console.log(data)
-
-
                 
             } catch (error) {
+                console.log(error.message)
                 manejarError(error,res)
             }
  

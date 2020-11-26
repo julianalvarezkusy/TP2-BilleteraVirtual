@@ -1,14 +1,10 @@
-const informeFactory = require('../Factorys/pdfCreatorFactory')
-const RUTA = "C:/Users/jualvarez/Documents/TP2/public/"
 const {crearErrorDeUsuario} = require('../../error/errores')
-const fs = require('fs')
 
-const miInforme = informeFactory.getInformedeGastosFC()
 
 
 const InformeGastos= {
 
-        run: async (data, db)=>{
+        run: async (data, db, informeFactory,  path)=>{
             //buscar un cliente
             let dni = parseInt(data)
             
@@ -28,11 +24,11 @@ const InformeGastos= {
             
             let miCliente = clientes[0]
 
-            let informe = await miInforme.crearDoc(miCliente, RUTA)
+            let informe = await informeFactory.crearDoc(miCliente, path)
 
             
             
-            return RUTA + miCliente.dni + ".pdf"
+            return path + miCliente.dni + ".pdf"
         }
     }
 
