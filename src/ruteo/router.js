@@ -7,6 +7,8 @@ const miCU = recordatorioCUFactory.getCU()
 router.post("/recordarcotizacion", async (req, res) => {
       console.log(req.query.dia)
 
+      // hacer esto con try catch
+
       if (miCU.run(req.query.dia) != undefined) {
             res.send('Se fijó el recordatorio de cotización para el día ' + req.query.dia);
       } else {
