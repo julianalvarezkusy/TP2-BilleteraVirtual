@@ -4,7 +4,9 @@
 function crearCUEliminarRecordatorio(dao) {
     return {
         run: (userId) => {
-            dao.delete(userId)
+            const recordatorio = dao.getByUserId(userId)
+            // recordatorio.cancel() => debería eliminar el job
+            dao.delete(userId) // Eliminamos en memoria
             return('Se eliminó el recordatorio asociado al usuario ' + userId)
         }
     }
