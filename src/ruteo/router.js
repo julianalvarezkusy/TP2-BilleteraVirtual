@@ -32,7 +32,7 @@ const eliminarCU = eliminarCUFactory.getCU()
 router.get("/recordatorios", async (req, res) => {
       try {
             let resultado = obtenerCU.run(req.query.userId)
-            res.json(resultado)
+            res.json({ mensaje: resultado } )
       }
       catch (error) {
             manejarError(error, res)
@@ -54,7 +54,7 @@ router.post("/recordatorios", async (req, res) => {
 router.delete("/recordatorios", async (req, res) => {
       try {
             let resultado = eliminarCU.run(req.query.userId)
-            res.json(resultado)
+            res.json({ mensaje: resultado } )
       }
       catch (error) {
             manejarError(error, res)
