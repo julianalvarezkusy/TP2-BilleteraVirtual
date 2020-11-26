@@ -5,6 +5,7 @@ const cotizador = crearCotizadorFactory().obtenerCotizador()
 
 async function cotizacion() {
     const valores = await cotizador.cotizar(cotizador.DOLAR_BLUE)
+    // Implementar notificador
     console.log("La cotización del dólar en este momento es de $" + valores.compra + " para la compra y $" + valores.venta + " para la venta.");
 }
 
@@ -24,6 +25,7 @@ function crearCURecordatorioCotizacion(scheduler, dao) {
             if (esDiaValido(dia)) {
                 const tarea = scheduler.programarTareaDia(dia, cotizacion);         // Almaceno el job para implementar persistencia
                 console.log('Se agregó un recordatorio cada ' + dia + ' días para el usuario: ' + userId)
+                // Revisar si no existe una actual (o cancelar)
                 dao.add(userId, tarea)                                              // Persistencia
                 return tarea;
             }
