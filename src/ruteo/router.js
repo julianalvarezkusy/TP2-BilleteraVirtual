@@ -1,3 +1,18 @@
+/*
+      Body de los requests para cada endpoint:
+
+      GET /recordatorios => userId
+            Devuelve un JSON con el objeto Job asociado (falta)
+
+      POST /recordatorios => userId | dias (int de 0 a 7)
+            Devuelve un JSON cuyos datos toma del objeto Job generado
+      
+      DELETE /recordatorios => userId
+            Devuelve un mensaje de confirmación con la eliminación del Job
+
+*/
+
+
 const { Router } = require("express")
 const router = Router()
 
