@@ -1,14 +1,21 @@
 /*
       Body de los requests para cada endpoint:
 
-      GET /recordatorios => userId
-            Devuelve un JSON con el objeto Job asociado (falta)
+      GET /recordatorios
+            userId -> ID del usuario cuyo recordatorio vamos a obtener      
+      Devuelve un JSON con el objeto Job asociado (falta)
 
-      POST /recordatorios => userId | dias (int de 0 a 7)
-            Devuelve un JSON cuyos datos toma del objeto Job generado
+
+      POST /recordatorios
+            userId -> ID del usuario al que le queremos programar un recordatorio
+            dias -> Frecuencia con la que será programado, expresado en el número correspondiente al día de la semana.
+                  VALIDACIÓN: Sólo son válidos números del 1 al 7 (siendo 1 "Lunes" y 7 "Domingo")
+      Devuelve un JSON cuyos datos toma del objeto Job generado
       
-      DELETE /recordatorios => userId
-            Devuelve un mensaje de confirmación con la eliminación del Job
+
+      DELETE /recordatorios
+            userId -> ID del usuario cuyo recordatorio queremos eliminar.
+      Devuelve un mensaje de confirmación con la eliminación del Job
 
 */
 
