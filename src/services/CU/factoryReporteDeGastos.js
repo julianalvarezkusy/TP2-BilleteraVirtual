@@ -15,6 +15,7 @@ const factoryReporteDeGastos = {
         return data
     }
 
+
 }
 
 

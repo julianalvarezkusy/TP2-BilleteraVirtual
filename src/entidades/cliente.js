@@ -5,8 +5,7 @@ let nextId = 1
 function crearCliente(datos){
     const cliente = {}
 
-    cliente.id = nextId++
-
+    
     if(!datos.dni){
         throw crearErrorDeUsuario('falta DNI')
     }else if (isNaN(datos.dni)){
@@ -14,13 +13,14 @@ function crearCliente(datos){
     }else{
         cliente.dni = datos.dni
     }
-
+    
     if(!datos.nombre){
         throw crearErrorDeUsuario('Falta Nombre')
     }else{
         cliente.nombre = datos.nombre
     }
-
+    
+    cliente.id = nextId++
     cliente.gastos = []
     
 
