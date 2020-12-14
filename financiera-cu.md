@@ -1,6 +1,6 @@
 # Financiera
 
-El módulo permite calcular la cantidad de pesos para la compra o venta de dolares de una determinada cotización a la fecha.
+El caso de uso es calcular la cantidad de pesos para la compra o venta de dolares de una determinada cotización a la fecha.
 
 ## Crear Financiera
 
