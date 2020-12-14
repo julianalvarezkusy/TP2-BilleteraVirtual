@@ -1,26 +1,3 @@
-/*
-      Body de los requests para cada endpoint:
-
-      GET /recordatorios
-            userId -> ID del usuario cuyo recordatorio vamos a obtener      
-      Devuelve un JSON con el objeto Job asociado (falta)
-
-
-      POST /recordatorios
-            userId -> ID del usuario al que le queremos programar un recordatorio
-            dias -> Frecuencia con la que será programado, expresado en el número correspondiente al día de la semana.
-                  VALIDACIÓN: Sólo son válidos números del 1 al 7 (siendo 1 "Lunes" y 7 "Domingo")
-      Devuelve un JSON cuyos datos toma del objeto Job generado
-      
-
-      DELETE /recordatorios
-            userId -> ID del usuario cuyo recordatorio queremos eliminar.
-      Devuelve un mensaje de confirmación con la eliminación del Job
-
-*/
-
-// HACÉ UNA DOCUMENTACIÓN COMO LA GENTE
-
 const { Router } = require("express")
 const router = Router()
 
@@ -29,7 +6,27 @@ const obtenerCU = obtenerCUFactory.getCU()
 const recordatorioCU = recordatorioCUFactory.getCU()
 const eliminarCU = eliminarCUFactory.getCU()
 
-
+/**
+ * @swagger
+ * /recordatorios:
+ *   get:
+ *     summary: Obtener recordatorio
+ *     description: Devuelve un mensaje con el recordatorio asociado al usuario
+ *     parameters:
+ *      - in : body
+ *        name: userId
+ *        type: int
+ *        required: true
+ *        description: ID del usuario a consultar. Número entero.
+ *     responses:
+ *       200:
+ *         description: JSON con el objeto Job consultado (falta)
+ *       400:
+ *         description: bad request
+ *       500:
+ *         description: server error
+ * 
+ */
 router.get("/recordatorios", async (req, res) => {
       try {
             let resultado = obtenerCU.run(req.query.userId)
@@ -41,6 +38,33 @@ router.get("/recordatorios", async (req, res) => {
 
 })
 
+
+/**
+ * @swagger
+ * /recordatorios:
+ *   post:
+ *     summary: Generar recordatorio
+ *     description: Se generará el recordatorio con la frecuencia indicada, al usuario indicado por userId.
+ *     parameters:
+ *      - in : body
+ *        name: userId
+ *        type: integer
+ *        required: true
+ *        description: ID del usuario al que le quermeos generar el recordatorio. Número entero.
+ *      - in : body
+ *        name: dia
+ *        type: integer
+ *        required: true
+ *        description: Día de la semana para establecer el recordatorio. Número entero válido del 0 al 7.
+ *     responses:
+ *       200:
+ *         description: JSON con el objeto Job generado.
+ *       400:
+ *         description: bad request
+ *       500:
+ *         description: server error
+ * 
+ */
 router.post("/recordatorios", async (req, res) => {
       try {
             let resultado = recordatorioCU.run(req.query.userId, req.query.dia)
@@ -52,6 +76,28 @@ router.post("/recordatorios", async (req, res) => {
 
 })
 
+
+/**
+ * @swagger
+ * /recordatorios:
+ *   delete:
+ *     summary: Eliminar recordatorio
+ *     description: Elimina el recordatorio asociado al ID de usuario indicado.
+ *     parameters:
+ *      - in : body
+ *        name: userId
+ *        type: int
+ *        required: true
+ *        description: ID del usuario cuyo recordatorio vamos a eliminar. Número entero.
+ *     responses:
+ *       200:
+ *         description: Mensaje con la eliminación exitosa del recordatorio.
+ *       400:
+ *         description: bad request
+ *       500:
+ *         description: server error
+ * 
+ */
 router.delete("/recordatorios", async (req, res) => {
       try {
             let resultado = eliminarCU.run(req.query.userId)
