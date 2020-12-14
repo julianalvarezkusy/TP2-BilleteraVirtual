@@ -5,7 +5,7 @@ const cotizador = crearCotizadorFactory().obtenerCotizador()
 
 async function cotizacion() {
     const valores = await cotizador.cotizar(cotizador.DOLAR_BLUE)
-    // Implementar notificador
+    // notificarUsuario();
     console.log("La cotización del dólar en este momento es de $" + valores.compra + " para la compra y $" + valores.venta + " para la venta.");
 }
 
